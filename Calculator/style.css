@@ -1,13 +1,21 @@
-/* :root {
-    --base-red:
-    --base-blue:
-    --base-teal:
-} */
+:root {
+    --base-red: rgb(255, 175, 175);
+    --base-blue: rgb(181, 181, 255);
+    --base-teal: rgb(146, 251, 255);
+    --text-base: rgb(44, 44, 44);
+    --corpus-base: rgba(101, 142, 208, 0.75);
+    --border-base: rgba(170, 0, 255, 0.2);
+    --button-btn: rgba(181, 181, 255, 0.4);
+    --button-cmd: rgba(146, 251, 255, 0.4);
+    --button-cancel: rgba(255, 175, 175, 0.75);
+}
 
 html {
     box-sizing: border-box;
     height: 100%;
 }
+
+/* area:sudo */
 
 *,
 *::before,
@@ -17,9 +25,11 @@ html {
     padding: 0;
 }
 
+/* area end */
+
 body {
     align-items: center;
-    background: linear-gradient(320deg, rgb(255, 175, 175), rgb(181, 181, 255), rgb(146, 251, 255));
+    background: linear-gradient(320deg, var(--base-red), var(--base-blue), var(--base-teal));
     display: flex;
     font-family: sans-serif;
     font-display: swap;
@@ -30,11 +40,11 @@ body {
 .row_screen {
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
-    background: #2f68d383;
-    border: 2px solid rgba(170, 0, 255, 0.1);
+    background: var(--corpus-base);
+    border: 2px solid var(--border-base);
     border-radius: 16px;
-    box-shadow: 0 4px 60px rgb(181, 181, 255);
-    color: #1b1b1b;
+    box-shadow: 0 4px 60px var(--base-blue);
+    color: var(--text-base);
     flex-basis: 240px;
     height: 360px;
     padding: 20px 35px;
@@ -43,16 +53,18 @@ body {
 .screen {
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
-    background: rgb(181, 181, 255);
-    border: 1px solid rgba(170, 0, 255, 0.2);
+    background: var(--base-blue);
+    border: 1px solid var(--corpus-base);
     border-radius: 10px;
-    box-shadow: 0 4px 30px rgb(255, 175, 175);
-    color: #1b1b1b;
+    box-shadow: 0 4px 30px var(--base-red);
+    color: var(--text-base);
     font-size: 35px;
     overflow: auto;
     padding: 4px;
     text-align: right;
     width: 180px;
+    /* in case if area:sudo is disabled */
+    /* width: 230px; */
 }
 
 .row_btn {
@@ -64,15 +76,16 @@ body {
 .btn {
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
-    background: rgb(181, 181, 255, 0.5);
-    border: 1px solid rgba(170, 0, 255, 0.3);
+    background: var(--button-btn);
+    border: 1px solid var(--corpus-base);
     border-radius: 10px;
-    box-shadow: 0 4px 30px rgb(255, 175, 175);
-    color: #1b1b1b;
+    box-shadow: 0 4px 30px var(--base-teal);
+    color: var(--text-base);
     flex-basis: 20%;
     font-family: inherit;
     font-size: 26px;
     height: 42px;
+    /* why this one is grey? */
     transition-property: background-color;
     transition-duration: 0.2s;
 }
@@ -80,13 +93,18 @@ body {
 .cmd {
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
-    background: rgb(181, 181, 255);
-    border: 1px solid rgba(170, 0, 255, 0.3);
+    background: var(--base-blue);
+    border: 1px solid var(--corpus-base);
     border-radius: 10px;
-    box-shadow: 0 4px 30px rgb(255, 175, 175);
-    color: #1b1b1b;
-    background: rgb(146, 251, 255, 0.3);
+    box-shadow: 0 4px 30px var(--base-red);
+    color: var(--text-base);
+    background: var(--button-cmd);
 }
+
+/* this button is supposed to be class, not id */
+/* #cancel {
+    background-color: var(--button-cancel);
+} */
 
 .btn:hover {
     background-color: inherit;
@@ -94,7 +112,7 @@ body {
 }
 
 .btn:active {
-    background-color: rgb(146, 251, 255);
+    background-color: var(--base-teal);
 }
 
 .double {
